@@ -1,6 +1,6 @@
 # Go 1.24 Release Changes (February 2025)
 
-> At the edge of Claude's training cutoff (May 2025). Most is known but details may be fuzzy.
+> Within Claude's training data (cutoff June 2026). Well covered, but some details are commonly missed.
 > Source: https://go.dev/doc/go1.24
 
 ## Language Changes

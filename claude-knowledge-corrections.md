@@ -1,7 +1,8 @@
 # Go Knowledge Corrections for Claude
 
-> This file corrects Claude's pre-training knowledge (cutoff May 2025)
-> for Go 1.24 (Feb 2025, edge of training), Go 1.25 (Aug 2025), Go 1.26 (Feb 2026), and Go 1.27 (Aug 2026).
+> This file corrects Claude's training knowledge (cutoff June 2026) for Go 1.24 (Feb 2025), Go 1.25 (Aug 2025),
+> Go 1.26 (Feb 2026), and Go 1.27 (Aug 2026). Go 1.27 is after the cutoff; Go 1.25–1.26 are shortly before it
+> and thinly represented in training data; Go 1.24 is well covered but some details are commonly missed.
 > Include this file in any Go project's CLAUDE.md to avoid incorrect suggestions.
 
 ## Go 1.27 (Aug 2026) — newest release, Claude knows none of this
@@ -116,6 +117,8 @@ err = mldsa.Verify(sk.PublicKey(), msg, sig, &mldsa.Options{Context: "my-app"})
 
 ## Critical: Things Claude will get WRONG without this file (Go 1.25–1.26)
 
+> Both releases predate Claude's cutoff (June 2026), but little code used them yet, so Claude tends to fall back to pre-1.25 idioms.
+
 ### 13. `new` built-in accepts expressions (Go 1.26)
 
 **Claude believes**: `new` only accepts a type argument: `new(T)`
@@ -218,7 +221,7 @@ Previously implementation-dependent. Now detailed in spec appendix with matching
 
 **Claude doesn't know about**: `simd/archsimd` package with vector types (`Int8x16`, `Float64x8`, etc.). Enable with `GOEXPERIMENT=simd`. It was amd64-only in Go 1.26; Go 1.27 revised the amd64 API and added arm64 Neon and WebAssembly 128-bit support. Go 1.27 also added a **portable** `simd` package (same flag) with width-agnostic types like `Int8s` and `Float32s` that works on all architectures.
 
-## Go 1.24 (edge of training data — details may be fuzzy)
+## Go 1.24 (within training data — details commonly missed)
 
 ### 31. `go.mod` `tool` directives (Go 1.24)
 

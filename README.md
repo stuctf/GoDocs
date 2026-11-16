@@ -1,11 +1,11 @@
 # GoDocs — Post-Training Go Knowledge for Claude Code
 
-Claude's training data has a cutoff (currently May 2025). That means it doesn't know about Go 1.25 (Aug 2025), Go 1.26 (Feb 2026), or Go 1.27 (Aug 2026) at all, and its knowledge of Go 1.24 (Feb 2025) can be fuzzy. Without corrections, Claude will:
+Claude's training data has a cutoff (currently June 2026). Go 1.27 (Aug 2026) shipped after that, so Claude doesn't know about it at all. Go 1.25 (Aug 2025) and Go 1.26 (Feb 2026) came out before the cutoff but only shortly before it. Little real-world code using them existed yet, so Claude knows them poorly and tends to fall back to older patterns. Go 1.24 (Feb 2025) and earlier are well covered. Without corrections, Claude will:
 
 - Suggest outdated patterns when modern replacements exist (`errors.As` instead of `errors.AsType[T]`, manual `WaitGroup` instead of `wg.Go`, `github.com/google/uuid` instead of the stdlib `uuid` package)
 - Miss important language changes (`new(expr)`, self-referential generics, generic methods)
 - Use insecure defaults it learned from older code (weak crypto, `math/rand` for tokens, string-interpolated SQL)
-- Not know about the new Green Tea GC, container-aware GOMAXPROCS, post-quantum TLS and ML-DSA signatures, `encoding/json/v2`, or dozens of other stdlib improvements
+- Overlook recent runtime and stdlib changes it rarely saw in practice (the Green Tea GC, container-aware GOMAXPROCS, post-quantum TLS), and not know about Go 1.27 additions like `crypto/mldsa` and `encoding/json/v2` going GA
 
 These documents fix that. Drop them into your Go project and point Claude Code at them so every session starts with accurate, up-to-date knowledge.
 

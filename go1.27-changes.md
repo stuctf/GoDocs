@@ -1,6 +1,6 @@
 # Go 1.27 Release Changes (August 2026)
 
-> Post-training knowledge for Claude (cutoff May 2025).
+> Post-training knowledge for Claude (cutoff June 2026).
 > Source: https://go.dev/doc/go1.27
 
 ## Language Changes

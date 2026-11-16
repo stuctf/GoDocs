@@ -1,6 +1,6 @@
 # Go 1.26 Release Changes (February 2026)
 
-> Post-training knowledge for Claude (cutoff May 2025).
+> Shortly before Claude's training cutoff (June 2026). Very thinly represented in training data; treat as largely unknown to Claude.
 > Source: https://go.dev/doc/go1.26
 
 ## Language Changes

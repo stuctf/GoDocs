@@ -1,6 +1,6 @@
 # Go 1.25 Release Changes (August 2025)
 
-> Post-training knowledge for Claude (cutoff May 2025).
+> Shortly before Claude's training cutoff (June 2026). Thinly represented in training data, so Claude often falls back to older idioms.
 > Source: https://go.dev/doc/go1.25
 
 ## Language Changes
