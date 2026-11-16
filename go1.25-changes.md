@@ -94,6 +94,8 @@ Enable with `GOEXPERIMENT=jsonv2`. Two new packages:
 
 When enabled, `encoding/json` transparently uses the new implementation. Encoding at parity, **decoding substantially faster**. Marshaling/unmarshaling behavior unchanged, but error text may differ.
 
+> **Update:** These packages became standard (no experiment flag) in **Go 1.27**, and the API changed in the meantime. For example, the `inline` tag option was renamed to `embed`, and `DiscardUnknownMembers` and `SkipFunc` were removed. See `go1.27-changes.md` before writing v2 code.
+
 ## Standard Library Highlights
 
 ### `sync`

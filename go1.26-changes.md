@@ -61,7 +61,7 @@ Previously `Adder[A Adder[A]]` was illegal. This enables patterns like Java's `C
 
 The experimental GC from Go 1.25 is now **enabled by default**. 10-40% GC overhead reduction. On newer amd64 CPUs (Intel Ice Lake / AMD Zen 4+), uses vector instructions for ~10% further improvement.
 
-Disable with `GOEXPERIMENT=nogreenteagc`. Opt-out expected to be removed in Go 1.27.
+Disable with `GOEXPERIMENT=nogreenteagc`. Opt-out expected to be removed in Go 1.27. (**Update:** it was not removed; `nogreenteagc` still works in Go 1.27.)
 
 ### Faster cgo Calls
 

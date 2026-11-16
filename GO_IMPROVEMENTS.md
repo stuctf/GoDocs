@@ -30,6 +30,8 @@ Drop a `CLAUDE.md` in your Go project root so Claude Code automatically follows 
 - Use `wg.Go(func() { ... })` not manual Add/go/Done (Go 1.25+)
 - Use `omitzero` not `omitempty` when omitting zero values in JSON tags — especially for struct types like `time.Time` where `omitempty` doesn't work (Go 1.24+)
 - Use `b.Loop()` not `for range b.N` in benchmarks (Go 1.24+)
+- Use the stdlib `uuid` package, not `github.com/google/uuid` (Go 1.27+)
+- Use `strings.CutLast` / `bytes.CutLast`, not `LastIndex` plus slicing (Go 1.27+)
 - Run `go fix ./...` after making changes
 ```
 
@@ -96,13 +98,13 @@ Since you already have `docs/go/GO_BEST_PRACTICES.md` and the version-specific c
 
 ```markdown
 ## Go Version Notes
-This project uses Go 1.26+.
-See ~/Documents/Knowledgebase/docs/go/claude-knowledge-corrections.md for
+This project uses Go 1.27+.
+See docs/go/claude-knowledge-corrections.md for
 post-training Go changes that Claude's base knowledge gets wrong.
 
 ## Go Reference Docs
 - Read `docs/go/GO_BEST_PRACTICES.md` for coding standards
-- Read `docs/go/go1.26-changes.md` for latest Go features
+- Read `docs/go/go1.27-changes.md` for latest Go features
 ```
 
 The version notes block matches the format recommended by the corrections doc itself, ensuring Claude reads it and corrects its stale training knowledge.

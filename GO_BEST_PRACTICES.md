@@ -72,9 +72,15 @@ These are called "fixers" or "modernizers." Each one targets a specific pattern:
 | `forvar` | Removes redundant loop variable re-declarations | 1.22 |
 | `stringscut` | `strings.Index` + slicing → `strings.Cut` | 1.18 |
 | `stringsbuilder` | String concatenation in loops → `strings.Builder` | 1.10 |
-| `fmtappendf` | `[]byte(fmt.Sprintf(...))` → `fmt.Appendf` | 1.19 |
 | `mapsloop` | Explicit map loops → `maps` package calls | 1.21 |
 | `newexpr` | Custom `newFoo` helpers → `new(value)` | 1.26 |
+| `waitgroupgo` | `wg.Add(1)` / `go` / `wg.Done()` → `wg.Go` (called `waitgroup` before the Go 1.27 toolchain) | 1.25 |
+| `slicesbackward` | Backward index loops over slices → `slices.Backward` (Go 1.27 toolchain) | 1.23 |
+| `atomictypes` | `atomic.AddInt64(&x, …)` etc. on plain ints → `atomic.Int64` and friends (Go 1.27 toolchain) | 1.19 |
+| `unsafefuncs` | Manual `unsafe.Pointer` arithmetic → `unsafe.Add` etc. (Go 1.27 toolchain) | 1.17 |
+| `embedlit` | `T{Embedded: Embedded{x: 1}}` → `T{x: 1}` (Go 1.27 toolchain) | 1.27 |
+
+The `fmtappendf` fixer (`[]byte(fmt.Sprintf(...))` → `fmt.Appendf`) was removed in the Go 1.27 toolchain for stylistic reasons. Run `go tool fix help` to see the current list.
 
 ### Version gating
 
